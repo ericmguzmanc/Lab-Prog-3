@@ -24,27 +24,27 @@ body {
 table {
   margin-top:20px;
   width: 100%;
-  border: 1px solid black;
-}
-
-table .t-cell {
-  border-right: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 table th {
-
+  background-color: lightgray;
   font-size: 0.8em;
+  border-radius: 2px;
 }
 
 table tr {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid black !important;
 }
 
 table td {
   font-size: 0.7em;
+  border-bottom: 1px solid black;
+  border-bottom-style: dotted;
+  /* border-radius: 5px; */
 }
 
 table img {
-  width: 100px;
+  width: 120px;
   height: 100px;
 }
