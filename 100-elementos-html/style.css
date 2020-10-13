@@ -1,0 +1,50 @@
+body {
+  background-color: lightcoral;
+  font-size: 2em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.main-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.main-container img {
+  margin: 0 auto;
+  border-radius: 5px;
+  display: block;
+}
+
+.header-container {
+  margin: auto;
+  width: 100%;
+}
+
+table {
+  margin-top:20px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+table .t-cell {
+  border-right: 1px solid black;
+}
+
+table th {
+
+  font-size: 0.8em;
+}
+
+table tr {
+  border-bottom: 1px solid black;
+}
+
+table td {
+  font-size: 0.7em;
+}
+
+table img {
+  width: 100px;
+  height: 100px;
+}
