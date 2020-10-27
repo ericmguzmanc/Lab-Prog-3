@@ -1,0 +1,122 @@
+
+#main_menu {
+  block-size: 57px;
+  border-inline-end-color: rgb(102, 206, 246);
+  border-inline-end-style: solid;
+  border-inline-end-width: 1px;
+  bottom: -57px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  height: 57px;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  text-align: left;
+  text-size-adjust: 100%;
+  text-transform: uppercase;
+  top: 89px;
+  transform-origin: 600px 28.5px;
+  width: 1200px;
+  background: rgb(0, 174, 240) none repeat scroll 0% 0% / auto padding-box border-box;
+  border-right: 1px solid rgb(102, 206, 246);
+  font: 16px / 16px freight_sansbook, sans-serif;
+  list-style: outside none none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#main_menu > li > a {
+  color: #fff;
+  display: block;
+  height: 100%;
+  padding: 22px 0 0;
+  text-decoration: none;
+  border-top: 1px solid #00aef0;
+  /* border-bottom: 1px solid #00aef0; */
+  transition: all 0.2s cubic-bezier(0.165,0.84,0.44,1);
+}
+
+#main_menu > li {
+  height: 100%;
+  border-left: 1px solid #66cef6;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.submenu {
+  background: #fff;
+  color: #00aef0;
+  box-shadow: 0 20px 30px -15px rgba(0,0,0,0.3);
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-left: 30px;
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+  transition: all 0.2s cubic-bezier(0.165,0.84,0.44,1);
+  visibility: hidden;
+  /* display: none; */
+  width: 100%;
+  z-index: 999;
+}
+
+
+#main_menu > li:hover > a {
+  color: #00aef0;
+  background: #fff;
+  display: block;
+  height: 100%;
+  padding: 22px 0 0;
+  text-decoration: none;
+  border-top: 1px solid #00aef0;
+  border-bottom: 1px solid #00aef0;
+  transition: all 0.2s cubic-bezier(0.165,0.84,0.44,1);
+}
+
+#main_menu > li:hover > div {
+  visibility: visible;
+  opacity: 1;
+  min-height: 250px;
+  /* display: block; */
+}
+
+.submenu_section {
+  /* border: 1px solid red; */
+  padding-left: 5px;
+  width: 40%;
+  display:inline-block;
+  margin-top: 0;
+  border-right: 1px solid lightgray;
+}
+
+.submenu_section > ul > li > a {
+  font-size: 0.7em;
+  text-decoration: none;
+  color: gray;
+}
+
+.submenu_section > ul > li {
+  margin-bottom: 5px;
+}
+
+.submenu_section > ul {
+  list-style: none;
+}
+
+.ver_todos {
+  border: 1px solid lightgray;
+  color: orange;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 0.6em;
+}
+
