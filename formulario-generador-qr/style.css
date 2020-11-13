@@ -8,8 +8,7 @@ body {
 
 .main-container {
   margin: auto;
-  /* border:1px solid pink; */
-  width: 80%;
+  width: 350;
   text-align: center;
 }
 
@@ -83,6 +82,8 @@ nav > h2 {
   text-align: right;
   padding: 5px;
   margin-top: 5px;
+  padding-top: 15px;
+
 }
 
 .btn {
@@ -91,6 +92,7 @@ nav > h2 {
   border-radius: 5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .btn:active {
@@ -152,4 +154,21 @@ nav > h2 {
   position: absolute;
   opacity: 0.5;
   display: none;
+}
+
+#qr-code {
+  border-radius: 5px;
+}
+
+.canvas-container {
+  margin: auto;
+  margin-top: 10px !important;
+  padding-top: 20px;
+  width: 350px;
+  border-top: 1px solid lightgray;
+  display: none;
+}
+
+.canvas-container > .submit-btn-container {
+  width: 350px;
 }

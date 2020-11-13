@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="qrious.min.js"></script>
   <script src="campo.js"></script>
   <script src="formulario.js"></script>
   <script src="scripts.js"></script>
+
   <title>Generador de QR</title>
 </head>
 <body>
@@ -14,9 +16,9 @@
   <div class="loader centered" id="loader"></div>
 
   <div class="main-container">
-    <span class="title">Formulario Generador de Codigo QR</span>
+    <span class="title" id="titleSpan">Formulario Generador de Codigo QR</span>
     <!-- <hr> -->
-    <div class="form-container">
+    <div class="form-container" id="formContainer">
       <form action="" method="post">
         
         <div class="required-msg">
@@ -93,10 +95,16 @@
         </div>
       </form>
     </div>
-    <div class="msg-container">
-      <div class="success-msg">
-
+    
+    <div class="canvas-container" id="canvasContainer">
+      <canvas id="qr-code"></canvas>
+      <div class="submit-btn-container"> 
+        <input class="btn" type="button" value="Volver" onclick="volverAFormulario()">
       </div>
+    </div>
+
+    <div class="msg-container">
+      <div class="success-msg"></div>
       <div class="error-msg" id="error-msg"></div>
     </div>
   </div>

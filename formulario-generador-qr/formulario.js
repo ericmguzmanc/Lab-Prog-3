@@ -34,5 +34,6 @@ class Formulario {
 
   limpiar = () => this.campos.forEach(campo => document.getElementById(campo.campoId).value = '');
   
+  camposToString = () => this.campos.map(campo => [document.getElementById(campo.campoId+'Label').innerHTML, campo.value]);
 
 }
