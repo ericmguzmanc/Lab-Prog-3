@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="campo.js"></script>
+  <script src="formulario.js"></script>
+  <script src="scripts.js"></script>
+  <title>Generador de QR</title>
+</head>
+<body>
+  <div class="loader-container" id="loaderContainer"></div>
+  <div class="loader centered" id="loader"></div>
+
+  <div class="main-container">
+    <span class="title">Formulario Generador de Codigo QR</span>
+    <!-- <hr> -->
+    <div class="form-container">
+      <form action="" method="post">
+        
+        <div class="required-msg">
+          <span class="required-field">*</span>
+          <span> requerido</span>
+        </div>
+
+        <table>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="nombreCompleto" id="nombreCompletoLabel">Nombre Completo</label>
+            </td>
+            <td>
+              <input type="text" name="nombreCompleto" id="nombreCompleto" onchange="limpiarValidacion('nombreCompleto')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="empresaDondeLabora" id="empresaDondeLaboraLabel" >Empresa Labora</label>
+            </td>
+            <td>
+              <input type="text" name="empresaDondeLabora" id="empresaDondeLabora" onchange="limpiarValidacion('empresaDondeLabora')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="cargo" id="cargoLabel">Cargo</label>
+              </td>
+            <td>
+              <input type="text" name="cargo" id="cargo" onchange="limpiarValidacion('cargo')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="telefonoMovil" id="telefonoMovilLabel">Telefono Movil</label>
+            </td>
+            <td>
+            <input type="text" name="telefonoMovil" id="telefonoMovil" onchange="limpiarValidacion('telefonoMovil')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="telefonoHogar" id="telefonoHogarLabel">Telefono Hogar</label>
+            </td>
+            <td>
+              <input type="text" name="telefonoHogar" id="telefonoHogar" onchange="limpiarValidacion('telefonoHogar')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="emailInstitucional" id="emailInstitucionalLabel">Email Institucional</label>
+            </td>
+            <td>
+              <input type="text" name="emailInstitucional" id="emailInstitucional" onchange="limpiarValidacion('emailInstitucional')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="emailEmpresa" id="emailEmpresaLabel">Email Empresa</label>
+            </td>
+            <td>
+              <input type="text" name="emailEmpresa" id="emailEmpresa" onchange="limpiarValidacion('emailEmpresa')"> 
+            </td>
+          </tr>
+        </table>
+        <div class="submit-btn-container"> 
+          <input class="btn standard" type="button" value="Limpiar" onclick="limpiarFormulario()">
+          <input class="btn submit" type="button" value="Generar QR" onclick="submitForm()">
+        </div>
+      </form>
+    </div>
+    <div class="msg-container">
+      <div class="success-msg">
+
+      </div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+  </div>
+</body>
+</html>
