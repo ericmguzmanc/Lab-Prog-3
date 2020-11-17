@@ -1,61 +1,84 @@
 *{
-
-  padding: 0%;
+  padding: 0;
   margin: 0;
 }
 body{
-  background-color: black;
-  font-family:sans-serif;
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
 }
-.menu{
-  background-color: #00aef0;
-  height: 63px;
-  padding: 1px 16px;
-  font-size: 16px;
+
+.menu {
+  background-color: lightgray;
+  height: 50px;
+  padding: 0;
+  font-size: 1.2em;
   display: flex;
 }
-.menu li{
-  width: 100%;
+
+#parent-ul {
   list-style: none;
-  height: auto;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+} 
+
+#parent-ul > #parent-li {
+  float: left;
+  display: block;
+  height: inherit;
   text-align: center;
-  border: 1px solid #fff;
-  color:#fff;
-
+  padding: 13px;
+  border:1px solid black;
+  width: 250px;
 }
 
+ul li {
+  text-decoration: none;
+}
 
-
-.menu li .desplegar {
-  background: #323d5e;
-  height: auto;
-  position: absolute;
-  margin: 25px auto;
-  width: 50%;
-  border-radius: 5px;
-  padding-bottom: 60px;
+#child-parent {
   display: none;
- 
 }
 
-.menu li:hover .desplegar{
+#parent-li:hover > #child-parent {
   display: block;
 }
 
+#child-li:hover > #child-parent {
+  display: block;
+}
 
-
-.menu li ul li {
-  border: none;
+#child-li #child-parent {
   text-align: left;
-  padding: 8px;
+  text-decoration: none !important;
 }
 
-.desplegar .desplegarSub{
-  display: none;
-  
+#child-li > #child-parent {
+  position: fixed;
+  width: 500px;
+  background-color: black;
 }
-.desplegar li:hover .desplegarSub{
-  display: block;
-  color: rgb(255, 174, 0);
+
+#parent-li {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+#child-li:hover {
+  background-color: black;
+} 
+
+#child-li {
+  padding: 13px;
+  min-width: 250px;
+}
+
+#child-parent > #parent-li {
+  background-color: blackk;
+}
+  
+#parent-li:hover {
+  background-color: gray;
+  color: white;
 }
