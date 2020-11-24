@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./jquery-3.5.1.js"></script>
+  <script src="./bootstrap/js/bootstrap.js"></script>
+  <script src="campo.js"></script>
+  <script src="formulario.js"></script>
+  <script src="scripts.js"></script>
+
+  <title>Generador de QR</title>
+</head>
+<body>
+  <div class="loader-container" id="loaderContainer"></div>
+  <div class="loader centered" id="loader"></div>
+
+  <div class="container">
+    <div class="row main-row">
+      <div class="col-sm"></div>
+      <div class="col-xs  main-col-grid">
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="col-md">
+            <h3>Historial Clinico</h3>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md">
+            <ul class="nav nav-tabs" id="historialClinico" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="datosPersonales-tab" data-toggle="tab" href="#datosPersonales" role="tab" aria-controls="datosPersonales" aria-selected="true">Datos Personales</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="familiares-tab" data-toggle="tab" href="#familiares" role="tab" aria-controls="familiares" aria-selected="false">Familiares</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="condicionesPreExistentes-tab" data-toggle="tab" href="#condicionesPreExistentes" role="tab" aria-controls="condicionesPreExistentes" aria-selected="false">Condiciones Pre-Existentes</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="internamientosRealizados-tab" data-toggle="tab" href="#internamientosRealizados" role="tab" aria-controls="internamientosRealizados" aria-selected="false">Internamientos Realizados</a>
+              </li>
+            </ul>
+            <form>
+              <div class="tab-content" id="historialClinicoContent">
+                <!-- Formulario Datos Personales -->
+                <div class="tab-pane fade show active" id="datosPersonales" role="tabpanel" aria-labelledby="datosPersonales-tab">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Juan">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" placeholder="Perez">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="edad">Edad</label>
+                        <input type="number" class="form-control" id="edad" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="sexo">Sexo</label>
+                        <br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input type="radio" id="mRadio" name="sexRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="mRadio">M</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input type="radio" id="fRadio" name="sexRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="fRadio">F</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="email">Correo Electronico</label>
+                        <input type="text" class="form-control" id="email" placeholder="ejemplo@gmail.com">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="email">Nacionalidad</label>
+                        <input type="text" class="form-control" id="Nacionalidad" placeholder="Dominicano">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group text-left">
+                    <label for="direccion1">Direccion</label>
+                    <input type="text" class="form-control" id="direccion1" placeholder="Constelacion, Jardines del Norte...">
+                  </div>
+                  <div class="form-group text-left">
+                    <label for="provincia">Provincia</label>
+                    <input type="text" class="form-control" id="Provincia" placeholder="Santo Domingo">
+                  </div>
+                </div>
+                <!-- Formulario Familiares -->
+                <div class="tab-pane fade" id="familiares" role="tabpanel" aria-labelledby="familiares-tab">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="nombreCompleto">Nombre Completo</label>
+                        <input type="text" class="form-control" id="nombreCompleto" placeholder="Juan Perez">
+                      </div>
+
+                    </div>
+                    <div class="col-xs">
+                      <div class="form-group text-left">
+                        <label for="parentesco">Parentesco</label>
+                        <input type="text" class="form-control" id="parentesco" placeholder="Padre">
+                      </div>
+                    </div>
+                    <div class="col-xs pl-3 small-col">
+                      <div class="form-group text-left">
+                        <label for="edad">Edad</label>
+                        <input type="number" class="form-control" id="edadFamiliar" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-xs pl-3 small-col text-left" style="padding-top: 32px;">
+                      <button type="button" class="btn btn-primary" style="font-weight: bold;" data-toggle="tooltip" data-placement="top" title="Agregar Familiar" onClick="agregarFamiliar()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row pt-4">
+                    <div class="col-md">
+                      <table class="table" id="tablaFamiliares" >
+                        <thead>
+                          <tr>
+                            <!-- <th scope="col">#</th> -->
+                            <th scope="col">Nomrbre Completo</th>
+                            <th scope="col">Parentesco</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody id="familiaresTbody">
+                          <tr>
+                           <!-- <td colspan="5" class="text-center">No hay familiares agregados...</td>
+                             <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td> 
+                            <td>x</td> 
+                          -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- Formulario Condiciones Pre-Existentes -->
+                <div class="tab-pane fade" id="condicionesPreExistentes" role="tabpanel" aria-labelledby="condicionesPreExistentes-tab">
+                  <div class="row">
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="enfermedad">Enfermedad</label>
+                        <input type="text" class="form-control" id="enfermedad" placeholder="Escribir Enfermedad">
+                      </div>
+
+                    </div>
+                    <div class="col-md">
+                      <div class="form-group text-left">
+                        <label for="tiempoEnfermedad">Desde Cuando la tiene?</label>
+                        <input type="date" class="form-control" id="tiempoEnfermedad">
+                      </div>
+                    </div>
+                    <div class="col-xs pl-3 small-col text-left" style="padding-top: 32px;">
+                      <button type="button" class="btn btn-primary" style="font-weight: bold;" data-toggle="tooltip" data-placement="top" title="Agregar Condicion" onclick="agregarCondicion()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row pt-4">
+                    <div class="col-md">
+                      <table class="table" id="tablaCondiciones">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Enfermedad</th>
+                            <th scope="col">Tiempo</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody id="condicionesTbody">
+                          <tr>
+                            <td colspan="4" class="text-center">No hay Condiciones Pre-existentes...</td>
+                          <!--   <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td> 
+                            <td>x</td> 
+                          -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- Formulario Internamientos Realizados  -->
+                <div class="tab-pane fade" id="internamientosRealizados" role="tabpanel" aria-labelledby="internamientosRealizados-tab">
+                  <div class="row">
+                    <div class="col-md pr-0">
+                      <div class="form-group text-left">
+                        <label for="centroMedico">Centro Medico</label>
+                        <input type="text" class="form-control" id="centroMedico" placeholder="Escribir Centro Medico">
+                      </div>
+
+                    </div>
+                    <div class="col-md pr-3">
+                      <div class="form-group text-left">
+                        <label for="diagnostico">Diagnostico</label>
+                        <input type="text" class="form-control" id="diagnostico" placeholder="Escribir Diagnostico">
+                      </div>
+                    </div>
+                    <div class="col-xs" style="width: 170px;">
+                      <div class="form-group text-left">
+                        <label for="fechaInternamiento">Fecha</label>
+                        <input type="date" class="form-control" id="fechaInternamiento" >
+                      </div>
+                    </div>
+                    <div class="col-xs pl-3 small-col text-left" style="padding-top: 32px;">
+                      <button type="button" class="btn btn-primary" style="font-weight: bold;" data-toggle="tooltip" data-placement="top" title="Agregar Internamiento" onclick="agregarInternamiento()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row pt-4">
+                    <div class="col-md">
+                      <table class="table" id="tablaInternamientos">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Centro Medico</th>
+                            <th scope="col">Diagnostico</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody id="internamientosTbody">
+                          <tr>
+                            <td colspan="5" class="text-center">No hay familiares agregados...</td>
+                          <!--   <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td> 
+                            <td>x</td> 
+                          -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md text-left">
+            <button type="button" class="btn btn-outline-secondary">Cancelar</button>
+          </div>
+          <div class="col-md text-right">
+            <button type="button" class="btn btn-outline-primary">Limpiar</button>
+            <button type="button" class="btn btn-success">Enviar</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm"></div>
+    </div>
+
+  </div>
+
+  <!-- <div class="main-container" style="display: none;">
+    <span class="title" id="titleSpan">Formulario Generador de Codigo QR</span>
+    <div class="form-container" id="formContainer">
+      <form action="" method="post">
+        
+        <div class="required-msg">
+          <span class="required-field">*</span>
+          <span>requerido</span>
+        </div>
+
+        <table>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="nombreCompleto" id="nombreCompletoLabel">Nombre Completo</label>
+            </td>
+            <td>
+              <input type="text" name="nombreCompleto" id="nombreCompleto" onchange="limpiarValidacion('nombreCompleto')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="empresaDondeLabora" id="empresaDondeLaboraLabel" >Empresa Labora</label>
+            </td>
+            <td>
+              <input type="text" name="empresaDondeLabora" id="empresaDondeLabora" onchange="limpiarValidacion('empresaDondeLabora')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="cargo" id="cargoLabel">Cargo</label>
+              </td>
+            <td>
+              <input type="text" name="cargo" id="cargo" onchange="limpiarValidacion('cargo')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="telefonoMovil" id="telefonoMovilLabel">Telefono Movil</label>
+            </td>
+            <td>
+            <input type="text" name="telefonoMovil" id="telefonoMovil" onchange="limpiarValidacion('telefonoMovil')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="telefonoHogar" id="telefonoHogarLabel">Telefono Hogar</label>
+            </td>
+            <td>
+              <input type="text" name="telefonoHogar" id="telefonoHogar" onchange="limpiarValidacion('telefonoHogar')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="required-field">*</span>
+              <label for="emailInstitucional" id="emailInstitucionalLabel">Email Institucional</label>
+            </td>
+            <td>
+              <input type="text" name="emailInstitucional" id="emailInstitucional" onchange="limpiarValidacion('emailInstitucional')">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="emailEmpresa" id="emailEmpresaLabel">Email Empresa</label>
+            </td>
+            <td>
+              <input type="text" name="emailEmpresa" id="emailEmpresa" onchange="limpiarValidacion('emailEmpresa')"> 
+            </td>
+          </tr>
+        </table>
+        <div class="submit-btn-container"> 
+          <input class="btn standard" type="button" value="Limpiar" onclick="limpiarFormulario()">
+          <input class="btn submit" type="button" value="Generar QR" onclick="submitForm()">
+        </div>
+      </form>
+    </div>
+    
+    <div class="canvas-container" id="canvasContainer">
+      <canvas id="qr-code"></canvas>
+      <div class="submit-btn-container"> 
+        <input class="btn" type="button" value="Volver" onclick="volverAFormulario()">
+      </div>
+    </div>
+
+    <div class="msg-container">
+      <div class="success-msg"></div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+  </div> -->
+</body>
+</html>
