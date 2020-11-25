@@ -42,28 +42,6 @@ function limpiarValidacion(campoId) {
   document.getElementById(campoId).style.border = '1px solid lightgray';
 }
 
-
-// function generarQR() {
-//   // console.log(formulario);
-//   // document.getElementById('error-msg').style.display = 'none';
-//   // document.getElementById('formContainer').style.display = 'none';
-//   // document.getElementById('titleSpan').innerHTML = "Codigo QR generado."
-//   // document.getElementById('canvasContainer').style.display = 'block';
-
-//   // const objCampos =  Object.fromEntries(new Map(formulario.camposToString()))
-
-//   // const qr = new QRious({
-//   //   element: document.getElementById('qr-code'),
-//   //   value: JSON.stringify(objCampos),
-//   //   background: '#027368',
-//   //   backgroundAlpha: 0.8,
-//   //   foreground: '#024873',
-//   //   foregroundAlpha: 0.8,
-//   //   size: 300,
-//   // });
-
-// }
-
 function iniciarDetenerLoader() { 
   document.getElementById('loaderContainer').style.display = 'block';
   document.getElementById('loader').style.display = 'block';
@@ -104,7 +82,6 @@ function agregarFamiliar() {
 
 function popularFamiliar(familiar) {
 
-  const rowNumber = document.createTextNode(formulario.getFamiliares().length > 0 ? formulario.getFamiliares().length + 1 : 1);
   const nombre = document.createTextNode(familiar.nombre);
   const parentesco = document.createTextNode(familiar.parentesco);
   const edadFamiliar = document.createTextNode(familiar.edadFamiliar);
@@ -146,6 +123,7 @@ function agregarCondicion() {
     tiempoEnfermedad: document.getElementById("tiempoEnfermedad").value,
   }
 
+  popularCondicion(condicion);
   formulario.agregarCondicion(condicion);
   console.log('formulario: ', formulario)
 
@@ -154,37 +132,46 @@ function agregarCondicion() {
 }
 
 function popularCondicion(condicion) {
-  const rowNumber = document.createTextNode(formulario.getFamiliares().length > 0 ? formulario.getFamiliares().length + 1 : 1);
-  const nombre = document.createTextNode(familiar.nombre);
-  const parentesco = document.createTextNode(familiar.parentesco);
-  const edadFamiliar = document.createTextNode(familiar.edadFamiliar);
+  const enfermedad = document.createTextNode(condicion.enfermedad);
+  const tiempo = document.createTextNode(condicion.tiempoEnfermedad);
 
+  let tablaCondiciones = document.getElementById("tablaCondiciones");
+  let newRow = tablaCondiciones.insertRow(-1);
 
-  let tablaFamiliares = document.getElementById("tablaFamiliares");
-  tablaFamiliares.deleteRow(1);
+  let tdEnfermedad = newRow.insertCell(0);
+  let tdTiempo = newRow.insertCell(1);
+  let deleteBtn = newRow.insertCell(2);
 
-  let newRow = tablaFamiliares.insertRow(-1);
+  newRow.rowId = formulario.getArrayCount('condiciones');
 
-  let tdNumber = newRow.insertCell(0);
-  let tdNombre = newRow.insertCell(1);
-  let tdParentesco = newRow.insertCell(2);
-  let tdEdad = newRow.insertCell(3);
+  tdEnfermedad.appendChild(enfermedad);
+  tdTiempo.appendChild(tiempo);
 
-  tdNumber.appendChild(rowNumber);
-  tdNombre.appendChild(nombre);
-  tdParentesco.appendChild(parentesco);
-  tdEdad.appendChild(edadFamiliar);
+  const button = document.createElement("button");
+  button.type = "button";
+  button.classList.add("btn");
+  button.classList.add("btn-danger");
+  button.innerHTML = "<i class='fas fa-times'></i>"
+  button.onclick = () => {
+    deleteRow(newRow, 'condiciones', newRow);
+  }
+
+  deleteBtn.appendChild(button);
+  
+
 }
 
 function agregarInternamiento() {
 
-  const familiar = {
+  const internamiento = {
     centroMedico: document.getElementById("centroMedico").value,
     diagnostico: document.getElementById("diagnostico").value,
     fechaInternamiento: document.getElementById("fechaInternamiento").value,
   }
 
-  formulario.agregarInternamiento(familiar);
+  popularInternamiento(internamiento);
+
+  formulario.agregarInternamiento(internamiento);
   console.log('formulario: ', formulario)
 
   document.getElementById("centroMedico").value = '';
@@ -193,26 +180,37 @@ function agregarInternamiento() {
 }
 
 function popularInternamiento(internamiento) {
-  const rowNumber = document.createTextNode(formulario.getFamiliares().length > 0 ? formulario.getFamiliares().length + 1 : 1);
-  const nombre = document.createTextNode(familiar.nombre);
-  const parentesco = document.createTextNode(familiar.parentesco);
-  const edadFamiliar = document.createTextNode(familiar.edadFamiliar);
+  const centroMedico = document.createTextNode(internamiento.centroMedico);
+  const diagnostico = document.createTextNode(internamiento.diagnostico);
+  const fechaInternamiento = document.createTextNode(internamiento.fechaInternamiento);
 
+  let tablaInternamiento = document.getElementById("tablaInternamientos");
+  let newRow = tablaInternamiento.insertRow(-1);
 
-  let tablaFamiliares = document.getElementById("tablaFamiliares");
-  tablaFamiliares.deleteRow(1);
+  let tdCentroMedico = newRow.insertCell(0);
+  let tdDiagnostico = newRow.insertCell(1);
+  let tdfechaInternamiento = newRow.insertCell(2);
 
-  let newRow = tablaFamiliares.insertRow(-1);
+  let deleteBtn = newRow.insertCell(3);
 
-  let tdNumber = newRow.insertCell(0);
-  let tdNombre = newRow.insertCell(1);
-  let tdParentesco = newRow.insertCell(2);
-  let tdEdad = newRow.insertCell(3);
+  newRow.rowId = formulario.getArrayCount('internamientos');
 
-  tdNumber.appendChild(rowNumber);
-  tdNombre.appendChild(nombre);
-  tdParentesco.appendChild(parentesco);
-  tdEdad.appendChild(edadFamiliar);
+  tdCentroMedico.appendChild(centroMedico);
+  tdDiagnostico.appendChild(diagnostico);
+  tdfechaInternamiento.appendChild(fechaInternamiento);
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.classList.add("btn");
+  button.classList.add("btn-danger");
+  button.innerHTML = "<i class='fas fa-times'></i>"
+  button.onclick = () => {
+    deleteRow(newRow, 'internamientos', newRow);
+  }
+
+  deleteBtn.appendChild(button);
+  
+
 }
 
 function deleteRow(row, campo, rowToDelete) {
@@ -222,3 +220,88 @@ function deleteRow(row, campo, rowToDelete) {
   rowToDelete.remove();
   console.log('form despues de borrar: ', formulario)
 }
+
+function someterFormulario() {
+
+  const nombre = document.getElementById('nombre').value;
+  const apellido = document.getElementById('apellido').value;
+  const edad = document.getElementById('edad').value;
+
+  let sex = '';
+  if(document.getElementById('mRadio').value != 0) {
+    sex = 'M';
+  } 
+  if(document.getElementById('fRadio').value != 0) {
+    sex = 'F';
+  }
+
+  const email = document.getElementById('email').value;
+  const nacionalidad = document.getElementById('nacionalidad').value;
+  const direccion = document.getElementById('direccion').value;
+  const provincia = document.getElementById('provincia').value;
+
+  formulario.agregarValorACampo('nombre', nombre);
+  formulario.agregarValorACampo('apellido', apellido);
+  formulario.agregarValorACampo('edad', edad);
+  formulario.agregarValorACampo('sex', sex);
+  formulario.agregarValorACampo('email', email);
+  formulario.agregarValorACampo('nacionalidad', nacionalidad);
+  formulario.agregarValorACampo('direccion', direccion);
+  formulario.agregarValorACampo('provincia', provincia);
+
+  const formularioToSave = JSON.stringify({campos: formulario.campos, valido: formulario.valido});
+  window.localStorage.setItem('formHistorialClinico', formularioToSave);
+}
+
+function fillUpForm() {
+  document.getElementById('nombre').value = formulario.campos[formulario.obtenerIndiceCampo('nombre')].value;
+  document.getElementById('apellido').value = formulario.campos[formulario.obtenerIndiceCampo('apellido')].value;
+  document.getElementById('edad').value = formulario.campos[formulario.obtenerIndiceCampo('edad')].value;
+  document.getElementById('email').value = formulario.campos[formulario.obtenerIndiceCampo('email')].value;
+  document.getElementById('nacionalidad').value = formulario.campos[formulario.obtenerIndiceCampo('nacionalidad')].value;
+  document.getElementById('direccion').value = formulario.campos[formulario.obtenerIndiceCampo('direccion')].value;
+  document.getElementById('provincia').value = formulario.campos[formulario.obtenerIndiceCampo('provincia')].value;
+
+  const familiares = formulario.campos[formulario.obtenerIndiceCampo('familiares')].value;
+  familiares.forEach(elm => {
+    popularFamiliar({ 
+      nombre: elm.nombre,
+      parentesco: elm.parentesco,
+      edad: elm.edad
+    });
+  });
+
+  const condiciones = formulario.campos[formulario.obtenerIndiceCampo('condiciones')].value;
+  condiciones.forEach(elm => {
+    popularCondicion({ 
+      enfermedad: elm.enfermedad,
+      tiempoEnfermedad: elm.tiempoEnfermedad,
+    });
+  });
+
+  const internamientos = formulario.campos[formulario.obtenerIndiceCampo('internamientos')].value;
+  internamientos.forEach(elm => {
+    popularInternamiento({ 
+      centroMedico: elm.centroMedico,
+      diagnostico: elm.diagnostico,
+      fechaInternamiento: elm.fechaInternamiento
+    });
+  });
+
+  console.log('loadedForm ', formulario);
+}
+
+(
+  function initForm() {
+    if(window.localStorage.getItem('formHistorialClinico')) {
+      const formData = JSON.parse(window.localStorage.getItem('formHistorialClinico'));
+      formulario.campos = formData.campos;
+      formulario.valido = formData.valido;
+    }
+  }
+)()
+
+window.addEventListener('unload', (event) => {
+  console.log('Sometiendo Formulario...');
+  someterFormulario();
+});

@@ -16,7 +16,7 @@
 
   <title>Generador de QR</title>
 </head>
-<body>
+<body onload="fillUpForm()">
   <div class="loader-container" id="loaderContainer"></div>
   <div class="loader centered" id="loader"></div>
 
@@ -95,17 +95,17 @@
                     <div class="col-md">
                       <div class="form-group text-left">
                         <label for="email">Nacionalidad</label>
-                        <input type="text" class="form-control" id="Nacionalidad" placeholder="Dominicano">
+                        <input type="text" class="form-control" id="nacionalidad" placeholder="Dominicano">
                       </div>
                     </div>
                   </div>
                   <div class="form-group text-left">
                     <label for="direccion1">Direccion</label>
-                    <input type="text" class="form-control" id="direccion1" placeholder="Constelacion, Jardines del Norte...">
+                    <input type="text" class="form-control" id="direccion" placeholder="Constelacion, Jardines del Norte...">
                   </div>
                   <div class="form-group text-left">
                     <label for="provincia">Provincia</label>
-                    <input type="text" class="form-control" id="Provincia" placeholder="Santo Domingo">
+                    <input type="text" class="form-control" id="provincia" placeholder="Santo Domingo">
                   </div>
                 </div>
                 <!-- Formulario Familiares -->
@@ -190,7 +190,7 @@
                       <table class="table" id="tablaCondiciones">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <!-- <th scope="col">#</th> -->
                             <th scope="col">Enfermedad</th>
                             <th scope="col">Tiempo</th>
                             <th scope="col"></th>
@@ -198,7 +198,7 @@
                         </thead>
                         <tbody id="condicionesTbody">
                           <tr>
-                            <td colspan="4" class="text-center">No hay Condiciones Pre-existentes...</td>
+                            <!-- <td colspan="4" class="text-center">No hay Condiciones Pre-existentes...</td> -->
                           <!--   <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -244,7 +244,7 @@
                       <table class="table" id="tablaInternamientos">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <!-- <th scope="col">#</th> -->
                             <th scope="col">Centro Medico</th>
                             <th scope="col">Diagnostico</th>
                             <th scope="col">Fecha</th>
@@ -253,7 +253,7 @@
                         </thead>
                         <tbody id="internamientosTbody">
                           <tr>
-                            <td colspan="5" class="text-center">No hay familiares agregados...</td>
+                            <!-- <td colspan="5" class="text-center">No hay familiares agregados...</td> -->
                           <!--   <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
@@ -278,7 +278,7 @@
           </div>
           <div class="col-md text-right">
             <button type="button" class="btn btn-outline-primary">Limpiar</button>
-            <button type="button" class="btn btn-success">Enviar</button>
+            <button type="button" class="btn btn-success" onclick="someterFormulario()">Enviar</button>
           </div>
         </div>
       </div>

@@ -51,9 +51,9 @@ class Formulario {
     }
   }
 
-  getFamiliares(){
-    const familiaresIndex = this.obtenerIndiceCampo('familiares');
-    return this.campos[familiaresIndex].value;
+  getMultipleEntryData(name){
+    const index = this.obtenerIndiceCampo(name);
+    return this.campos[index].value;
   }
 
   agregarCondicion(condicion) {
