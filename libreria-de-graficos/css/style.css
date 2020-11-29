@@ -1,0 +1,33 @@
+
+body {
+  font-size: 1em;
+}
+
+select {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+/* --------------------------------------------------- Bootstrap overrride ---------------------------------------------- */
+.main-row {
+  height: 100vh !important;
+  align-items: center;
+}
+
+.main-col-grid {
+  height: 85vh !important;
+}
+
+.tab-pane {
+  padding: 5px;
+  min-height: 450px;
+}
+
+.tab-content {
+  padding: 5px;
+}
+
+.small-col {
+  width: 90px
+}
