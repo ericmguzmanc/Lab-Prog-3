@@ -1,4 +1,4 @@
 NO ESTOY USANDO JQUERY, ES UNA LIBRERIA, BOOTSTRAP QUE LO NECESITA COMO DEPENDENCIA
 EN MI EJERCICIO NO LO UTILIZO DE MANERA PARTICULAR
 
-ENLACE A PAGINA: https://ericmguzmanc.github.io/Lab-Prog-3/formulario-historial-clinico/
+ENLACE A PAGINA: https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/
