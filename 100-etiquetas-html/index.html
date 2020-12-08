@@ -3,233 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./jquery-3.5.1.js"></script>
+  <script src="./bootstrap/js/bootstrap.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Etiquetas HTML</title>
 </head>
 <body>
-  <nav>
-    <header></header>
+  <!-- THIS IS THE NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" id="navbar-ul">
+          <li class="nav-item" id="li-100Etiquetas">
+            <a class="nav-link active" aria-current="page" href="https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/">100 Etiquetas Html</a>
+          </li>
+          <li class="nav-item" id="li-algoritmoMod10">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/algoritmo-modulo-10/">Algoritmo Mod. 10</a>
+          </li>
+          <li class="nav-item" id="li-generadorQR">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/formulario-generador-qr/">Generador QR</a>
+          </li>
+          <li class="nav-item" id="li-historialClinico">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/formulario-historial-clinico/">Historial Clínico</a>
+          </li>
+          <li class="nav-item" id="li-libreriaGraficos">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/">Librería de Gráficos</a>
+          </li>
+          <li class="nav-item" id="li-menuBanreservas">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/menu-banreservas/">Menu Banreservas</a>
+          </li>
+          <li class="nav-item" id="li-menuJSON">
+            <a class="nav-link" href="https://ericmguzmanc.github.io/Lab-Prog-3/menu-desde-json/">Menu JSON</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
-  <div class="main-container">
+  <!-- FIN DEL NAVBAR  -->
+  
+  <div class="container">
+    <div class="main-container">
 
-    <div style="width: 85%; padding-top: 25px; margin-bottom: 35px; "> 
-      <h4 style="display: inline;">ENLACE:</h4>
-      <a href="https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/">
-        <h4>https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/</h4> 
-      </a>
-    </div>
+      <div style="width: 85%; padding-top: 25px; margin-bottom: 35px; "> 
+        <h4 style="display: inline;">ENLACE:</h4>
+        <a href="https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/">
+          <h4>https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/</h4> 
+        </a>
+      </div>
 
-    <div class="tag-card">
-      <h4>DIV</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;div&gt;&lt;/div&gt;</code>
-      <span> Etiqueta utilizada para hacer un divisor de espacio</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <div style="border: 1px solid red; width: 200px; height: 100px;"></div>
-    </div>
-    <div class="tag-card">
-      <h4>SPAN</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;span&gt;&lt;/span&gt;</code>
-      <span> Etiqueta utilizada para representar texto</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <span style="display: block;"> esto es un span</span>
-    </div>
-    <div class="tag-card">
-      <h4>P</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;p&gt;&lt;/p&gt;</code>
-      <span> Etiqueta utilizada para representar un parafo</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <p> Este texto esta dentro de un parrafo</p>
-    </div>
-    <div class="tag-card">
-      <h4>CODE</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;code&gt;&lt;/code&gt;</code>
-      <span> Etiqueta utilizada para representar codigo</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <code> const getName = () => this.name; </code>
-    </div>
+      <div class="tag-card">
+        <h4>DIV</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;div&gt;&lt;/div&gt;</code>
+        <span> Etiqueta utilizada para hacer un divisor de espacio</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <div style="border: 1px solid red; width: 200px; height: 100px;"></div>
+      </div>
+      <div class="tag-card">
+        <h4>SPAN</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;span&gt;&lt;/span&gt;</code>
+        <span> Etiqueta utilizada para representar texto</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <span style="display: block;"> esto es un span</span>
+      </div>
+      <div class="tag-card">
+        <h4>P</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;p&gt;&lt;/p&gt;</code>
+        <span> Etiqueta utilizada para representar un parafo</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <p> Este texto esta dentro de un parrafo</p>
+      </div>
+      <div class="tag-card">
+        <h4>CODE</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;code&gt;&lt;/code&gt;</code>
+        <span> Etiqueta utilizada para representar codigo</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <code> const getName = () => this.name; </code>
+      </div>
 
-    <div class="tag-card">
-      <h4>IMG</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;img&gt;</code>
-      <span> Etiqueta utilizada para representar imagen</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <img style="width: 200px; height: 100px;" src="https://a.cdn-hotels.com/gdcs/production102/d440/f6238130-c31d-11e8-87bb-0242ac11000d.jpg" alt="">
-    </div>
+      <div class="tag-card">
+        <h4>IMG</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;img&gt;</code>
+        <span> Etiqueta utilizada para representar imagen</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <img style="width: 200px; height: 100px;" src="https://a.cdn-hotels.com/gdcs/production102/d440/f6238130-c31d-11e8-87bb-0242ac11000d.jpg" alt="">
+      </div>
 
-    <div class="tag-card">
-      <h4>H1, H2, H3, H4 ...</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;h1&gt;&lt;/h1&gt;</code>
-      <span> Etiqueta utilizada para representar encabezados, va desde h1 a h6</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <h1> encabezado h1 </h1>
-      <h2> encabezado h2 </h2>
-      <h3> encabezado h3 </h3>
-      <h4> encabezado h4 </h4>
-      <h5> encabezado h5 </h5>
-      <h6> encabezado h6 </h6>
-    </div>
-    <div class="tag-card">
-      <h4>INPUT</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;input type="text"&gt;</code> <br>
-      <code>&lt;input type="number"&gt;</code> <br>
-      <code>&lt;input type="password"&gt;</code> <br>
-      <code>&lt;input type="checkbox"&gt;</code> <br>
-      <br>
-      <span> Etiqueta utilizada para representar entrada por teclado </span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <input type="text" placeholder="excriba texto"> <br>
-      <input type="number" placeholder="number"> <br>
-      <input type="password" placeholder="password"> <br>
-      <input type="checkbox"> <br>
-    </div>
+      <div class="tag-card">
+        <h4>H1, H2, H3, H4 ...</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;h1&gt;&lt;/h1&gt;</code>
+        <span> Etiqueta utilizada para representar encabezados, va desde h1 a h6</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <h1> encabezado h1 </h1>
+        <h2> encabezado h2 </h2>
+        <h3> encabezado h3 </h3>
+        <h4> encabezado h4 </h4>
+        <h5> encabezado h5 </h5>
+        <h6> encabezado h6 </h6>
+      </div>
+      <div class="tag-card">
+        <h4>INPUT</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;input type="text"&gt;</code> <br>
+        <code>&lt;input type="number"&gt;</code> <br>
+        <code>&lt;input type="password"&gt;</code> <br>
+        <code>&lt;input type="checkbox"&gt;</code> <br>
+        <br>
+        <span> Etiqueta utilizada para representar entrada por teclado </span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <input type="text" placeholder="excriba texto"> <br>
+        <input type="number" placeholder="number"> <br>
+        <input type="password" placeholder="password"> <br>
+        <input type="checkbox"> <br>
+      </div>
 
-    <div class="tag-card">
-      <h4>INPUT CALENDAR</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;input type="date"&gt;</code>
-      <span> Etiqueta utilizada para representar seleccion de fecha</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <input type="date">
-    </div>
+      <div class="tag-card">
+        <h4>INPUT CALENDAR</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;input type="date"&gt;</code>
+        <span> Etiqueta utilizada para representar seleccion de fecha</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <input type="date">
+      </div>
 
-    <div class="tag-card">
-      <h4>INPUT COLOR</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;input type="color"&gt;</code>
-      <span> Etiqueta utilizada para representar seleccion de color</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <input type="color">
-    </div>
+      <div class="tag-card">
+        <h4>INPUT COLOR</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;input type="color"&gt;</code>
+        <span> Etiqueta utilizada para representar seleccion de color</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <input type="color">
+      </div>
 
-    <div class="tag-card">
-      <h4>INPUT RANGE</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;input type="range"&gt;</code>
-      <span> Etiqueta utilizada para representar seleccion un valor por rango</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <input type="range">
-    </div>
+      <div class="tag-card">
+        <h4>INPUT RANGE</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;input type="range"&gt;</code>
+        <span> Etiqueta utilizada para representar seleccion un valor por rango</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <input type="range">
+      </div>
 
-    <div class="tag-card">
-      <h4>INPUT RADIO</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;input type="radio"&gt;</code>
-      <span> Etiqueta utilizada para representar un boton de tipo radio</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <input type="radio">
-    </div>
+      <div class="tag-card">
+        <h4>INPUT RADIO</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;input type="radio"&gt;</code>
+        <span> Etiqueta utilizada para representar un boton de tipo radio</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <input type="radio">
+      </div>
 
-    <div class="tag-card">
-      <h4>BUTTON</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;button&gt;&lt;/button&gt;</code>
-      <span> Etiqueta utilizada para representar un boton</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <button type="button">boton</button>
-    </div>
+      <div class="tag-card">
+        <h4>BUTTON</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;button&gt;&lt;/button&gt;</code>
+        <span> Etiqueta utilizada para representar un boton</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <button type="button">boton</button>
+      </div>
 
-    <div class="tag-card">
-      <h4>MARK</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;mark&gt;&lt;/mark&gt;</code>
-      <span> Etiqueta utilizada para marcar texto</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <mark> este texto esta marcado </mark>
-    </div>
+      <div class="tag-card">
+        <h4>MARK</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;mark&gt;&lt;/mark&gt;</code>
+        <span> Etiqueta utilizada para marcar texto</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <mark> este texto esta marcado </mark>
+      </div>
 
-    <div class="tag-card">
-      <h4>SMALL</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;small&gt;&lt;/small&gt;</code>
-      <span> Etiqueta utilizada para impresiones finas de texto</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <small> este texto esta small </small>
-    </div>
+      <div class="tag-card">
+        <h4>SMALL</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;small&gt;&lt;/small&gt;</code>
+        <span> Etiqueta utilizada para impresiones finas de texto</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <small> este texto esta small </small>
+      </div>
 
-    <div class="tag-card">
-      <h4>UL</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code>
-      <span> Etiqueta utilizada para representar listas no ordenadas</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <ul> 
-        <li>Primer elemento</li>
-        <li>Segundo elemento</li>
-        <li>Tercer elemento</li>
-        <li>Cuarto elemento</li>
-      </ul>
-    </div>
+      <div class="tag-card">
+        <h4>UL</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</code>
+        <span> Etiqueta utilizada para representar listas no ordenadas</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <ul> 
+          <li>Primer elemento</li>
+          <li>Segundo elemento</li>
+          <li>Tercer elemento</li>
+          <li>Cuarto elemento</li>
+        </ul>
+      </div>
 
-    <div class="tag-card">
-      <h4>OL</h4>
-      <hr>
-      <span>Uso:</span>
-      <code>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</code>
-      <span> Etiqueta utilizada para representar listas ordenadas</span>
-      <br>
-      <br>
-      <span>Ejemplo:</span>
-      <ol> 
-        <li>Primer elemento</li>
-        <li>Segundo elemento</li>
-        <li>Tercer elemento</li>
-        <li>Cuarto elemento</li>
-      </ol>
-    </div>
-    
+      <div class="tag-card">
+        <h4>OL</h4>
+        <hr>
+        <span>Uso:</span>
+        <code>&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</code>
+        <span> Etiqueta utilizada para representar listas ordenadas</span>
+        <br>
+        <br>
+        <span>Ejemplo:</span>
+        <ol> 
+          <li>Primer elemento</li>
+          <li>Segundo elemento</li>
+          <li>Tercer elemento</li>
+          <li>Cuarto elemento</li>
+        </ol>
+      </div>
+      
 
+    </div>
   </div>
 </body>
 </html>
