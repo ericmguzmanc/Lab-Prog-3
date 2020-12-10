@@ -14,9 +14,9 @@
   <script src="data.js"></script>
   <script src="scripts.js"></script>
 
-  <title>Libreria de Graficos</title>
+  <title>LogIn</title>
 </head>
-<body onload="prepareData()">
+<body onload="checkIfLoggedIn()">
 
   <!-- THIS IS THE NAVBAR -->
   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,31 +64,36 @@
       <div class="col-4"></div>
       <div class="col-4">
         
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
+        <form method="post">
 
-            <h4 class="card-title">Login </h4>
-            <form>
-              <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" aria-describedby="Nombre de Usuario">
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password">
-              </div>
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
 
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary">Logearse</button>
-              </div>
-              <br>
-              <div class="text-center">
-                <a href="#"> Registrarse</a>
-              </div>
-            </form>
+              <h4 class="card-title">Login </h4>
+              <form>
+                <div class="mb-3">
+                  <label for="usuario" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" id="usuario" required aria-describedby="Nombre de Usuario">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" required>
+                </div>
 
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" onclick="logIn()">Logearse</button>
+                </div>
+                <br>
+                <div class="text-center">
+                  <a href="#"> Registrarse</a>
+                </div>
+              </form>
+
+            </div>
           </div>
-        </div>
+
+        </form>
+
 
       </div>
       <div class="col-4"></div>

@@ -48,6 +48,12 @@ function iterateChildren(children, index, menuLi) {
     menuLi.appendChild(child);
 }
 
+
+function logOut() {
+    window.localStorage.setItem("loggedIn", false);
+    window.open("https://ericmguzmanc.github.io/Lab-Prog-3/loginApp/", "_self");
+  }
+
 // function generarMenu(){
 // const menu = document.querySelector(".menu");
 // const index;

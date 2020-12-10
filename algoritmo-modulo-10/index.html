@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 </head>
-<body>
+<body onload="checkIfLoggedIn()">
 
   <!-- THIS IS THE NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +49,7 @@
               <a class="nav-link" href="#">Eric Guzman</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+              <a class="nav-link" href="#" onclick="logOut()">Logout</a>
           </li>
         </ul>
       </div>
