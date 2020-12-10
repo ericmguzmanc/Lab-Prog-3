@@ -11,6 +11,27 @@ function checkIfLoggedIn() {
   }
 }
 
+function loadPermissions() {
+  const registeredUser = JSON.parse(window.localStorage.getItem("registeredUser"))
+  const permisos = registeredUser.permission;
+  const navbarUl = document.getElementById("navbar-ul");
+
+  permisos.forEach(elm => {
+
+    const menuLi = document.createElement('li');
+    menuLi.classList.add("nav-item")
+    menuLi.id = "li-" + elm.value;
+
+    const menuA = document.createElement("a");
+    menuA.classList.add("nav-link");
+    menuA.href = elm.href;
+    menuA.innerHTML = elm.label;
+
+    menuLi.appendChild(menuA);
+    navbarUl.appendChild(menuLi);
+  });
+};
+
 function logOut() {
   window.localStorage.setItem("loggedIn", false);
   location.reload();

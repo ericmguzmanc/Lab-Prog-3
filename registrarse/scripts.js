@@ -3,44 +3,51 @@ const permisos = [
   {
     id: "cb_1",
     label: "100 Etiquetas HTML",
-    value:"p-1",
-    selected: false
+    value:"100Etiquetas",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/"
   },
   {
     id: "cb_2",
     label: "Algoritmo Modulo 10",
-    value:"p-2",
-    selected: false
+    value:"algoritmoMod10",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/algoritmo-modulo-10/"
   },
   {
     id: "cb_3",
     label: "Formulario Generador QR",
-    value:"p-3",
-    selected: false
+    value:"generadorQR",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-generador-qr/"
   },
   {
     id: "cb_4",
     label: "Formulario Historial Clinico",
-    value:"p-4",
-    selected: false
+    value:"historialClinico",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-historial-clinico/"
   },
   {
     id: "cb_5",
     label: " Libreria de Graficos",
-    value:"p-5",
-    selected: false
+    value:"libreriaGraficos",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/"
   },
   {
     id: "cb_6",
     label: "Menu Banreservas",
-    value:"p-6",
-    selected: false
+    value:"menuBanreservas",
+    selected: false,
+    href: "https://ericmguzmanc.github.io/Lab-Prog-3/menu-banreservas/"
   },
   {
     id: "cb_7",
     label: "Menu JSON",
-    value:"p-7",
-    selected: false
+    value:"menuJSON",
+    selected: false,
+    href: ""
   },
 ];
 

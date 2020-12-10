@@ -15,6 +15,12 @@
   <script src="scripts.js"></script>
 
   <title>LogIn</title>
+
+  <style>
+    #dangerAlert, #successAlert {
+      display: none;
+    }
+  </style>
 </head>
 <body onload="checkIfLoggedIn()">
 
@@ -64,7 +70,7 @@
       <div class="col-4"></div>
       <div class="col-4">
         
-        <form method="post" id="logInForm">
+        <form method="post" id="logInForm" onsubmit="event.preventDefault(); logIn();">
 
           <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -79,6 +85,10 @@
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password" required>
                 </div>
+
+                
+                <div class="alert alert-danger text-center" role="alert" id="dangerAlert"></div>
+                <div class="alert alert-success text-center" role="alert" id="successAlert"></div>
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary" onclick="logIn()">Logearse</button>
