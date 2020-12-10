@@ -5,49 +5,56 @@ const permisos = [
     label: "100 Etiquetas HTML",
     value:"100Etiquetas",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/100-etiquetas-html/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/"
   },
   {
     id: "cb_2",
     label: "Algoritmo Modulo 10",
     value:"algoritmoMod10",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/algoritmo-modulo-10/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/algoritmo-modulo-10/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/algoritmo-modulo-10/"
   },
   {
     id: "cb_3",
     label: "Formulario Generador QR",
     value:"generadorQR",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-generador-qr/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/formulario-generador-qr/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-generador-qr/"
   },
   {
     id: "cb_4",
     label: "Formulario Historial Clinico",
     value:"historialClinico",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-historial-clinico/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/formulario-historial-clinico/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/formulario-historial-clinico/"
   },
   {
     id: "cb_5",
     label: " Libreria de Graficos",
     value:"libreriaGraficos",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/libreria-de-graficos/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/"
   },
   {
     id: "cb_6",
     label: "Menu Banreservas",
     value:"menuBanreservas",
     selected: false,
-    href: "https://ericmguzmanc.github.io/Lab-Prog-3/menu-banreservas/"
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/menu-banreservas/index.html"
+    // href: "https://ericmguzmanc.github.io/Lab-Prog-3/menu-banreservas/"
   },
   {
     id: "cb_7",
     label: "Menu JSON",
     value:"menuJSON",
     selected: false,
-    href: ""
+    href: "file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/menu-desde-json/index.html"
+    // href: ""
   },
 ];
 

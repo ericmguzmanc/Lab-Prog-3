@@ -6,7 +6,7 @@ function checkIfLoggedIn() {
     const loggedUserPermissions = JSON.parse(window.localStorage.getItem("registeredUser")).permission;
 
     if (loggedUserPermissions) {
-     window.open(loggedUserPermissions[0].href, "_self");
+     //window.open(loggedUserPermissions[0].href, "_self");
 
     } else {
 
@@ -28,8 +28,11 @@ function logIn() {
       window.localStorage.setItem("loggedIn", true);
       // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/100-etiquetas-html/", "_self");
       // window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/100-etiquetas-html/index.html", "_self");
-      location.reload();
-      checkIfLoggedIn();
+      
+      const loggedUserPermissions = JSON.parse(window.localStorage.getItem("registeredUser")).permission;
+      if (loggedUserPermissions) {
+       window.open(loggedUserPermissions[0].href, "_self");
+      }
 
 
     }).catch(error => {
