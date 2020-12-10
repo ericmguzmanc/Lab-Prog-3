@@ -9,8 +9,8 @@ function checkIfLoggedIn() {
 }
 
 function loadPermissions() {
-  const registeredUser = JSON.parse(window.localStorage.getItem("registeredUser"))
-  const permisos = registeredUser.permission;
+  const loggedUser = JSON.parse(window.localStorage.getItem("loggedUser"))
+  const permisos = loggedUser.permission;
   const navbarUl = document.getElementById("navbar-ul");
 
   permisos.forEach(elm => {
@@ -27,6 +27,8 @@ function loadPermissions() {
     menuLi.appendChild(menuA);
     navbarUl.appendChild(menuLi);
   });
+
+  document.getElementById("li-algoritmoMod10").classList.add("active");
 };
 
 
@@ -149,6 +151,7 @@ async function iniciarValidacion() {
 
 function logOut() {
   window.localStorage.setItem("loggedIn", false);
+  window.localStorage.setItem("loggedUser", "");
   location.reload();
 }
   

@@ -1,6 +1,6 @@
 function loadPermissions() {
-  const registeredUser = JSON.parse(window.localStorage.getItem("registeredUser"))
-  const permisos = registeredUser.permission;
+  const loggedUser = JSON.parse(window.localStorage.getItem("loggedUser"))
+  const permisos = loggedUser.permission;
   const navbarUl = document.getElementById("navbar-ul");
 
   permisos.forEach(elm => {
@@ -17,6 +17,8 @@ function loadPermissions() {
     menuLi.appendChild(menuA);
     navbarUl.appendChild(menuLi);
   });
+
+  document.getElementById("li-100Etiquetas").classList.add("active");
 };
 
 
@@ -32,6 +34,6 @@ function checkIfLoggedIn() {
 
 function logOut() {
   window.localStorage.setItem("loggedIn", false);
-  // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/loginApp/", "_self");
+  window.localStorage.setItem("loggedUser", "");
   location.reload();
 }
