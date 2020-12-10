@@ -1,103 +1,120 @@
-var myChart;
 
+const permisos = [
+  {
+    id: "cb_1",
+    label: "100 Etiquetas HTML",
+    value:"p-1",
+    selected: false
+  },
+  {
+    id: "cb_2",
+    label: "Algoritmo Modulo 10",
+    value:"p-2",
+    selected: false
+  },
+  {
+    id: "cb_3",
+    label: "Formulario Generador QR",
+    value:"p-3",
+    selected: false
+  },
+  {
+    id: "cb_4",
+    label: "Formulario Historial Clinico",
+    value:"p-4",
+    selected: false
+  },
+  {
+    id: "cb_5",
+    label: " Libreria de Graficos",
+    value:"p-5",
+    selected: false
+  },
+  {
+    id: "cb_6",
+    label: "Menu Banreservas",
+    value:"p-6",
+    selected: false
+  },
+  {
+    id: "cb_7",
+    label: "Menu JSON",
+    value:"p-7",
+    selected: false
+  },
+];
 
-function prepareData() {
-  fillDropdown();
+function cargarPermisos() {
 
-  var ctx = document.getElementById('myChart');
-  myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: [],
-        datasets: [{
-            label: '# Cantidad de Casos',
-            data: [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 51, 153, 1)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true,
-                    stacked: true
-                }
-            }]
-        }
+}
+
+function togglePermission(event) {
+  dangerAlert.style.display = "none";
+  permisos.forEach(elm => {
+    if (elm.id == event.id) {
+      elm.selected = event.checked;
     }
   });
+
+  console.log(permisos);
+}
+
+permissionSelected = () => permisos.some(permiso => permiso.selected);
+
+
+function registrarUsuario() {
+  const dangerAlert = document.getElementById("dangerAlert");
+  dangerAlert.style.display = "none";
+
+  const usuario = document.getElementById("usuario");
+  const password = document.getElementById("password");
+  const passwordConfirm = document.getElementById("passwordConfirm");
+  const checkFormValidity = usuario.checkValidity() && password.checkValidity() && passwordConfirm.checkValidity() ;
+  const passwordInconsistente = password.value != passwordConfirm.value;
   
-  changeProvince("Distrito Nacional");
-}
+  const isPermissionSelected = permissionSelected();
+  
+  if (passwordInconsistente) {
+    dangerAlert.style.display = "block";
+    dangerAlert.innerHTML = "Los password no son iguales, favor excribir passwords iguales.";
+    
+  } else {
+    if (isPermissionSelected) {
+      if (checkFormValidity) {
+        
+        const filteredPermissions = permisos.filter(permission => permission.selected == true);
+        const userObj = {
+          username: usuario.value,
+          password: password.value,
+          permission: filteredPermissions
+        }
 
-function fillDropdown() {
-  let selectProvincia = document.getElementById("selectProvincia");
-  dataONE.forEach((elm, index) => {
-    let option = document.createElement("option");
-    option.value = elm.provincia;
-    option.innerHTML = elm.provincia;
 
-    selectProvincia.appendChild(option);
+        window.localStorage.setItem('registeredUser', JSON.stringify(userObj));
 
-    if (elm.provincia == "Distrito Nacional") {
-      selectProvincia.selectedIndex = index + 1;
+        const successAlert = document.getElementById("successAlert");
+        successAlert.style.display = "block";
+        successAlert.innerHTML = "Usuario registrado con exito! <br> Redireccionando..."
+
+        setTimeout((_ => {
+          goLogin();
+        }), 3000)
+
+      }
+    } else {
+      dangerAlert.style.display = "block";
+      dangerAlert.innerHTML = "Debe seleccionar al menos un permiso para registrarse";
+      return false;
     }
-  });
+  }
+
+
 }
 
 
-function changeProvince(value) {
-  console.log('Selected Province: ', value);
-  const provinceIndex = dataONE.findIndex(elm => elm.provincia == value);
 
-  const formattedData = dataONE[provinceIndex].data.map(keys => {
-    return {
-      years: Object.keys(keys).map(elm => elm),
-      casos: Object.keys(keys).map(elm=> keys[elm])
-    }
-  })
-
-  initChart(formattedData[0]);
+function goLogin() {
+  // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/loginApp/", "_self");
+  window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/loginApp/index.html", "_self");
 }
 
-function initChart(provincia) {
-
-  provincia.years.forEach(_ => removeData(myChart));
-  provincia.years.forEach((elm, index) => {
-    addData(myChart, provincia.years[index], provincia.casos[index])
-  });
-
-}
-
-function addData(chart, label, data) {
-  chart.data.labels.push(label);
-  chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
-  });
-  chart.update();
-}
-
-function removeData(chart) {
-  chart.data.labels.pop();
-  chart.data.datasets.forEach((dataset) => {
-      dataset.data.pop();
-  });
-  chart.update();
-}

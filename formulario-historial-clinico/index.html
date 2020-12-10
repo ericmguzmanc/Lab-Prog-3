@@ -16,7 +16,7 @@
 
   <title>Historial Clinico</title>
 </head>
-<body onload="fillUpForm()">
+<body onload="fillUpForm();checkIfLoggedIn();">
   
    <!-- THIS IS THE NAVBAR -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -46,9 +46,9 @@
           </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
               <a class="nav-link" href="#">Eric Guzman</a>
-          </li>
+          </li> -->
           <li class="nav-item">
               <a class="nav-link" href="#" onclick="logOut()">Logout</a>
           </li>

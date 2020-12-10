@@ -31,3 +31,7 @@ select {
 .small-col {
   width: 90px
 }
+
+#dangerAlert, #successAlert {
+  display: none;
+}
