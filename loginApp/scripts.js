@@ -67,35 +67,29 @@ function logIn() {
 
 function doLogin(usuario, password) {
   return new Promise((resolve, reject) => {
-    // setTimeout(() => {
-    //   const users = JSON.parse(window.localStorage.getItem("registeredUser"));
-    //   if (users) {
-    //     if(users.username == usuario && users.password == password) {
-    //       resolve(users);
-    //     } {
-    //       reject("No existe este usuario");
-    //     }
-    //   } else {
-    //     reject("No existe este usuario.");
-    //   }
-    // },1000);
-
-    // usersRef.on("child_added", snap => {
-    //   let user = snap.val();
-    //   if (user.username == usuario && user.password == password) {
-    //     resolve(user);
-    //   }
-    // });
-
+ 
     usersRef.on("value", snapshot => {
       console.log(snapshot.val());
       const fbUsuario = snapshot.val();
-      const fbUsuariosIndex = snapshot.val().findIndex(user => user.username == usuario && user.password == password);
 
-      if (fbUsuariosIndex != -1) {
-        resolve(fbUsuario[fbUsuariosIndex]);
+      const snapshotArray = Object.entries(snapshot.val());
+      if(snapshotArray.length > 0) {
+
+        const snapshotArrayMapped = snapshotArray.map(elm => elm[1]);
+
+        const fbUsuariosIndex = snapshotArray.findIndex(user => user[1].username == usuario && user[1].password == password);
+        if (fbUsuariosIndex != -1) {
+          resolve(snapshotArray[fbUsuariosIndex][1]);
+        } else {
+          reject("Este usuario no existe, intente de nuevo o registrese");
+        }
       } else {
-        reject("Este usuario no existe, intente de nuevo o registrese");
+        if (fbUsuario && fbUsuario.username == usuario && fbUsuario.password == password) {
+          resolve(fbUsuario);
+        }
+        else {
+          reject("Este usuario no existe, intente de nuevo o registrese");
+        }
       }
 
     }, errorObject => {
@@ -110,28 +104,3 @@ function openRegisterPage() {
   window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/registrarse/index.html", "_self");
 
 }
-
-
-{/* <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyAC9Z8elf_Xwi9DFQhjwaOojLrY0GC_U24",
-    authDomain: "final-lab-prog-3.firebaseapp.com",
-    projectId: "final-lab-prog-3",
-    storageBucket: "final-lab-prog-3.appspot.com",
-    messagingSenderId: "281045718516",
-    appId: "1:281045718516:web:1ae1523dc9a00892e995a1",
-    measurementId: "G-6FVNHDKE2X"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script> */}

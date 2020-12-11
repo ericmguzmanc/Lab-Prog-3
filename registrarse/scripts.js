@@ -1,3 +1,18 @@
+var firebaseConfig = {
+  apiKey: "AIzaSyAC9Z8elf_Xwi9DFQhjwaOojLrY0GC_U24",
+  authDomain: "final-lab-prog-3.firebaseapp.com",
+  projectId: "final-lab-prog-3",
+  storageBucket: "final-lab-prog-3.appspot.com",
+  messagingSenderId: "281045718516",
+  appId: "1:281045718516:web:1ae1523dc9a00892e995a1",
+  measurementId: "G-6FVNHDKE2X"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database().ref();
+const usersRef = db.child('users');
+
 
 const permisos = [
   {
@@ -58,9 +73,9 @@ const permisos = [
   },
 ];
 
-function cargarPermisos() {
 
-}
+
+
 
 function togglePermission(event) {
   dangerAlert.style.display = "none";
@@ -79,6 +94,8 @@ permissionSelected = () => permisos.some(permiso => permiso.selected);
 function registrarUsuario() {
   const dangerAlert = document.getElementById("dangerAlert");
   dangerAlert.style.display = "none";
+  const warningAlert = document.getElementById("warningAlert");
+  warningAlert.style.display = "none";
 
   const usuario = document.getElementById("usuario");
   const password = document.getElementById("password");
@@ -86,7 +103,7 @@ function registrarUsuario() {
   const checkFormValidity = usuario.checkValidity() && password.checkValidity() && passwordConfirm.checkValidity() ;
   const passwordInconsistente = password.value != passwordConfirm.value;
   
-  const isPermissionSelected = permissionSelected();
+  const isPermissionSelected = permisos.some(permiso => permiso.selected);
   
   if (passwordInconsistente) {
     dangerAlert.style.display = "block";
@@ -103,16 +120,28 @@ function registrarUsuario() {
           permission: filteredPermissions
         }
 
+        saveUser(userObj)
+        .then(res => {
+          // window.localStorage.setItem('registeredUser', JSON.stringify(userObj));
+  
+          const successAlert = document.getElementById("successAlert");
+          successAlert.style.display = "block";
+          successAlert.innerHTML = "Usuario registrado con exito! <br> Redireccionando..."
 
-        window.localStorage.setItem('registeredUser', JSON.stringify(userObj));
-
-        const successAlert = document.getElementById("successAlert");
-        successAlert.style.display = "block";
-        successAlert.innerHTML = "Usuario registrado con exito! <br> Redireccionando..."
-
-        setTimeout((_ => {
           goLogin();
-        }), 3000)
+
+        }).catch(error => {
+
+          if (error.type == 'user') {
+            warningAlert.style.display = "block";
+            warningAlert.innerHTML = error.msg;
+          } else if(error.type == error) {
+            dangerAlert.style.display = "block";
+            dangerAlert.innerHTML = error.msg;
+          }
+            return false; 
+        });
+
 
       }
     } else {
@@ -122,7 +151,58 @@ function registrarUsuario() {
     }
   }
 
+}
 
+
+function saveUser(usuario) {
+  return new Promise((resolve, reject) => {
+ 
+    usersRef.on("value", snapshot => {
+      console.log(snapshot.val());
+
+      if (snapshot.val()) {
+
+        /*if(typeof snapshot.val() == 'object') {
+          const userTosave = snapshot.val();
+          if (userTosave.username == usuario.username && userTosave.password == usuario.password) {
+            reject({"type": "user", "msg": "Este usuario ya existe, intente con otro nombre de usuario"});
+          } else {
+            const users = snapshot.val();
+            usersRef.set({
+              users,
+              ...usuario
+            }, res => {
+              resolve("Usuario creado con exito!")
+            });
+          }
+
+        } else { */
+          const snapshotArray = Object.entries(snapshot.val());
+          const fbUsuariosIndex = snapshotArray.findIndex(user => user[1].username == usuario.username && user[1].password == usuario.password);
+
+    
+          if (fbUsuariosIndex != -1) {
+            // reject({"type": "user", "msg": "Este usuario ya existe, intente con otro nombre de usuario"});
+          } else {
+            usersRef.push(usuario, res => {
+              const successAlert = document.getElementById("successAlert");
+              successAlert.style.display = "block";
+              successAlert.innerHTML = "Usuario registrado con exito! <br> Redireccionando..."
+
+              goLogin();
+            }, /*errorObject => {
+              reject({"type": "error", "msg": "Problemas con la base de datos, intente nuevamente"})
+            }*/);
+          }
+        // }
+
+      }
+
+    }, errorObject => {
+      reject({"type":"error", "msg":"Problemas con la base de datos, intente nuevamente"});
+    });
+    
+  });
 }
 
 

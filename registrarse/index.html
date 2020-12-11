@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap-grid.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./jquery-3.5.1.js"></script>
-  <script src="./bootstrap/js/bootstrap.js"></script>
-  <script src="chartsjs/Chart.js"></script>
-  <script src="data.js"></script>
-  <script src="scripts.js"></script>
+
+  <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+
+  <script defer src="./jquery-3.5.1.js"></script>
+  <script defer src="./bootstrap/js/bootstrap.js"></script>
+  <script defer src="chartsjs/Chart.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="scripts.js"></script>
 
   <title>Registrarse</title>
 </head>
@@ -129,6 +132,7 @@
 
               <div class="alert alert-danger" role="alert" id="dangerAlert"></div>
               <div class="alert alert-success" role="alert" id="successAlert"></div>
+              <div class="alert alert-warning" role="alert" id="warningAlert"></div>
 
               <div class="text-center">
                 <button type="submit" class="btn btn-primary" onclick="registrarUsuario()">Registrar Usuario</button>
