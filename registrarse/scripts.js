@@ -157,6 +157,7 @@ function registrarUsuario() {
 function saveUser(usuario) {
   return new Promise((resolve, reject) => {
  
+    let qusers = 0;
     usersRef.on("value", snapshot => {
       console.log(snapshot.val());
 
@@ -183,9 +184,11 @@ function saveUser(usuario) {
     
           if (fbUsuariosIndex != -1) {
             // reject({"type": "user", "msg": "Este usuario ya existe, intente con otro nombre de usuario"});
-
-            dangerAlert.style.display = "block";
-            dangerAlert.innerHTML = "Este usuario ya existe, intente con otro nombre de usuario";
+            qusers++;
+            if (qusers == 0) {
+              warningAlert.style.display = "block";
+              warningAlert.innerHTML = "Este usuario ya existe, intente con otro nombre de usuario";
+            }
           } else {
             usersRef.push(usuario, res => {
               const successAlert = document.getElementById("successAlert");
