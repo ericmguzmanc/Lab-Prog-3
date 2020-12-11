@@ -110,8 +110,8 @@ function checkIfLoggedIn() {
     // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/libreria-de-graficos/", "_self");
     // window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/libreria-de-graficos/index.html", "_self");
   } else {
-    // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/loginApp/", "_self");
-    window.open(window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/loginApp/index.html", "_self"));
+    window.open("https://ericmguzmanc.github.io/Lab-Prog-3/loginApp/", "_self");
+    // window.open(window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/loginApp/index.html", "_self"));
   }
 }
 

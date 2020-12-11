@@ -100,7 +100,7 @@ function doLogin(usuario, password) {
 }
 
 function openRegisterPage() {
-  // window.open("https://ericmguzmanc.github.io/Lab-Prog-3/registrarse/", "_self");
-  window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/registrarse/index.html", "_self");
+  window.open("https://ericmguzmanc.github.io/Lab-Prog-3/registrarse/", "_self");
+  // window.open("file:///C:/Users/ericm/OneDrive/Documents/UASD/Lab.%20Programaci%C3%B3n%20III/Tareas/registrarse/index.html", "_self");
 
 }
